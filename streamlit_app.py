@@ -11,7 +11,7 @@ else:
     openai.api_key = openai_api_key
 
     # Titre de l'application
-    st.title("📄 Relecture et Questions sur les Comptes Rendus Trimestriels")
+    st.title("📄 Relecture et Suggestions sur les Comptes Rendus Trimestriels")
 
     # Charger le fichier CSV
     uploaded_file = st.file_uploader("Téléchargez un fichier CSV contenant les comptes rendus", type=["csv"])
@@ -32,38 +32,38 @@ else:
         st.dataframe(df)
 
         # Poser une question sur le contenu du CSV
-        st.header("Poser une question sur le fichier CSV chargé")
-        csv_question = st.text_area("Posez une question concernant les données du fichier CSV :", disabled=uploaded_file is None)
-        if uploaded_file and csv_question:
-            try:
+       ## st.header("Poser une question sur le fichier CSV chargé")
+       ## csv_question = st.text_area("Posez une question concernant les données du fichier CSV :", disabled=uploaded_file is None)
+        ##if uploaded_file and csv_question:
+         ##   try:
                         # Préparer le message pour l'API
-                document = df.to_csv(index=False)
-                messages = [
-                    {
-                        "role": "user",
-                        "content": f"Voici un document CSV :\n{document}\n\n---\n\n{csv_question}",
-                    }
-                ]
+            ##    document = df.to_csv(index=False)
+            ##    messages = [
+              ##      {
+              ##          "role": "user",
+               ##         "content": f"Voici un document CSV :\n{document}\n\n---\n\n{csv_question}",
+               ##     }
+               ## ]
 
                 # Envoyer le prompt à l'API OpenAI
-                stream = openai.chat.completions.create(
-                    model="gpt-3.5-turbo",
-                    messages=messages,
-                    stream=True,
-                )
+              ##  stream = openai.chat.completions.create(
+             ##       model="gpt-3.5-turbo",
+              ##      messages=messages,
+              ##      stream=True,
+              ##  )
 
                 # Afficher la réponse en continu
-                response_content = ""
-                for chunk in stream:
-                    if hasattr(chunk.choices[0].delta, 'content') and chunk.choices[0].message.content is not None:
-                        response_content += chunk.choices[0].delta.content
+             ##   response_content = ""
+            ##    for chunk in stream:
+             ##       if hasattr(chunk.choices[0].delta, 'content') and chunk.choices[0].message.content is not None:
+                ##        response_content += chunk.choices[0].delta.content
                 
                 # Afficher la réponse complète une fois que toute la réponse est accumulée
-                st.write(response_content)
+             ##   st.write(response_content)
 
 
-            except Exception as e:
-                st.error(f"Erreur lors de l'appel à l'API : {e}")
+         ##   except Exception as e:
+          ##      st.error(f"Erreur lors de l'appel à l'API : {e}")
 
         # Analyser les comptes rendus
         if st.button("Analyser les comptes rendus avec l'IA"):
