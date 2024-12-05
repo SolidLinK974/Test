@@ -77,36 +77,38 @@ else:
             else:
                 for index, row in df.iterrows():
                     compte_rendu = row['compte_rendu']  # Assurez-vous que la colonne s'appelle bien "compte_rendu"
-                prompt = f"Réécrit le texte suivant ci-besoin afin d'améliorer l'orthographe, la clarté et la pertinence. Il faudrait aussi que le mot étude soit toujours remplacé par le mot tutorat. Voilà l'exemple d'un bon compte rendu Réécrit le texte suivant ci-besoin afin d'améliorer l'orthographe, la clarté et la pertinence. Il faudrait aussi que le mot étude soit toujours remplacé par le mot tutorat. Voilà l'exemple d'un bon compte rendu : Alexandre s’est rapidement approprié les sessions de tutorat pour en tirer le maximum ; il participe avec entrain aux différents temps de travail (rituels de mise au travail, tableau des devoirs, etc.). Durant ce trimestre, nous avons particulièrement insisté sur les mathématiques et plus spécifiquement sur les chapitres de géométrie pour lesquels il rencontre davantage de difficultés. Nous avons également utilement réalisé un certain nombre de dictées, exercice pour lequel nous sommes en train de surmonter ses réticences ! Globalement, le tutorat a l’air de profiter à Alexandre, nous l’encourageons à maintenir cet état d’esprit positif !. Encore un autre exemple :Césaréa a rejoint le tutorat en cours de trimestre. Depuis le début de l’année, nous avons relevé des problèmes d’organisation sur lesquels nous allons essayer de la faire progresser cette année : oubli de matériel fréquent, devoirs notés imparfaitement, etc. Si Césaréa est parfois agitée en début d’étude, elle arrive dans la plupart des cas à se recentrer sur ses devoirs et sollicite  le tuteur dès qu’elle en ressent le besoin. C’est une bonne chose ! Nous allons également continuer d’accorder une attention particulière aux mathématiques pour lesquelles elle rencontre davantage de difficultés. N'hésites pas à faire des paragraphes si tu sens que c'est nécessaire. On peut également vérifier que le prénom est le bon et qu'il n'y a pas de copié collé entre chaque ligne de différents comptes rendus :\n\n{compte_rendu}"
+                    
+                    #Créer le prompt pour l'IA
+                    prompt = f"Le mot étude doit être remplacé par tutorat et le mot Parkours est bien écrit de cette manière car c'est le nom de notre marque (ni Parkour's, ni parcours, etc).\n Un bon compte rendu doit être clair, structuré et rédigé dans un registre soutenu. Voici les principales caractéristiques à prendre en compte pour la rédaction :\n Langue : Le compte rendu doit être rédigé à la deuxième personne du singulier. Utiliser un langage respectueux et soutenu, en évitant les termes familiers ou vagues. Il est important d'être précis tout en restant motivant.\n Style : Chaque compte rendu doit commencer par une observation positive concernant les efforts ou les qualités de l'élève. Il est nécessaire d'identifier les progrès faits au cours de la période concernée, tout en soulignant les points sur lesquels l'élève peut encore s'améliorer. Ces points d'amélioration doivent être formulés de manière constructive, en proposant des pistes pour progresser.\n Syntaxe : Les phrases doivent être bien structurées, débutant par une majuscule et se terminant par une ponctuation adéquate. Le style doit être fluide, avec des transitions claires entre les différentes idées, afin de maintenir la cohérence du compte rendu.\n Motivation : Terminer par une phrase motivante pour encourager l'élève à poursuivre ses efforts et à maintenir la régularité dans son engagement au tutorat.\n Spécificité : Chaque commentaire doit être spécifique, mentionnant des aspects concrets du travail ou du comportement de l'élève, par exemple : 'Tu as fait preuve d'une bonne attitude face aux difficultés en posant régulièrement des questions pertinentes.' Plutôt que des termes généraux, utiliser des exemples qui montrent clairement les actions positives. \n Exemple Observation positive : 'Tu as su montrer un véritable engagement dans ton travail personnel.' \n Améliorations suggérées : 'Pour continuer à progresser, tu devrais essayer de maintenir une concentration constante et de t’éloigner des distractions.' \n Conclusion motivante : 'Continue sur cette voie, tes efforts porteront leurs fruits.':\n\n{compte_rendu}"
 
-                try:
-                    # Préparer le message pour l'API
-                    messages = [
+                    try:
+                        # Préparer le message pour l'API
+                        messages = [
                         {"role": "user", "content": prompt}
-                    ]
+                        ]
 
-                    # Envoyer le prompt à l'API OpenAI
-                    response = openai.chat.completions.create(
+                        # Envoyer le prompt à l'API OpenAI
+                        response = openai.chat.completions.create(
                         model="gpt-3.5-turbo",
                         messages=messages
-                    )
+                        )
 
-                    # Extraire la réponse du contenu
-                    response_content = response.choices[0].message.content.strip()
+                        # Extraire la réponse du contenu
+                        response_content = response.choices[0].message.content.strip()
 
-                    # Ajouter la suggestion à la liste des suggestions
-                    suggestions.append(response_content)
+                        # Ajouter la suggestion à la liste des suggestions
+                        suggestions.append(response_content)
 
-                except Exception as e:
-                    st.error(f"Erreur lors de l'appel à l'API pour l'entrée {index + 1} : {e}")
-                    suggestions.append("Erreur lors de l'analyse")
+                    except Exception as e:
+                        st.error(f"Erreur lors de l'appel à l'API pour l'entrée {index + 1} : {e}")
+                        suggestions.append("Erreur lors de l'analyse")
 
-            # Ajouter les suggestions au dataframe
-            while len(suggestions) < len(df):
-                suggestions.append("Pas de suggestion disponible")
-            if len(suggestions) < len(df):
-                suggestions += ["Pas de suggestion disponible"] * (len(df) - len(suggestions))
-            df['Suggestions'] = suggestions
+
+            # Vérifier si le nombre de suggestions correspond au nombre de lignes dans le dataframe
+            if len(suggestions) != len(df):
+                st.error(f"Nombre de suggestions ({len(suggestions)}) ne correspond pas au nombre de lignes ({len(df)}) dans le fichier.")
+            else:
+                df['Suggestions'] = suggestions
 
             # Afficher les résultats avec les suggestions
             st.write("Comptes rendus avec suggestions :")
@@ -115,4 +117,3 @@ else:
             # Ajouter une option pour télécharger le fichier mis à jour
             csv = df.to_csv(index=False)
             st.download_button(label="Télécharger les suggestions", data=csv, file_name='comptes_rendus_avec_suggestions.csv', mime='text/csv')
-
