@@ -86,20 +86,13 @@ Un bon compte rendu doit être clair, structuré et rédigé dans un registre so
 
 1. **Langue** : Le compte rendu ne doit pas être rédigé à la première personne du singulier. Utilise un langage respectueux et soutenu, en évitant les termes familiers ou vagues. Il est important d'être précis tout en restant motivant.
 
-2. **Style** : Chaque compte rendu doit commencer par une observation positive concernant les efforts ou les qualités de l'élève. Il est nécessaire d'identifier les progrès faits au cours de la période concernée, tout en soulignant les points sur lesquels l'élève peut encore s'améliorer. Ces points d'amélioration doivent être formulés de manière constructive, en proposant des pistes pour progresser.
+2. **Style** : Chaque compte rendu doit commencer par une observation positive concernant les efforts ou les qualités de l'élève. Il est nécessaire d'identifier les progrès faits au cours de la période concernée, tout en soulignant les points sur lesquels l'élève peut encore s'améliorer. Ces points d'amélioration doivent être formulés de manière constructive, en gardant son prénom et en proposant des pistes pour progresser.
 
 3. **Syntaxe** : Les phrases doivent être bien structurées, débutant par une majuscule et se terminant par une ponctuation adéquate. Le style doit être fluide, avec des transitions claires entre les différentes idées, afin de maintenir la cohérence du compte rendu.
 
 4. **Motivation** : Termine par une phrase motivante pour encourager l'élève à poursuivre ses efforts et à maintenir la régularité dans son engagement au tutorat.
 
 5. **Spécificité** : Chaque commentaire doit être spécifique, mentionnant des aspects concrets du travail ou du comportement de l'élève, par exemple : "Tu as fait preuve d'une bonne attitude face aux difficultés en posant régulièrement des questions pertinentes." Il est préférable d'utiliser des exemples concrets plutôt que des termes généraux.
-
-### Exemple de structure à ne pas reproduire systématiquement :
-- **Observation positive** : "Tu as su montrer un véritable engagement dans ton travail personnel."
-- **Améliorations suggérées** : "Pour continuer à progresser, tu devrais essayer de maintenir une concentration constante et de t’éloigner des distractions."
-- **Conclusion motivante** : "Continue sur cette voie, tes efforts porteront leurs fruits."
-
-Attention à ne pas écrire "Observation positive", "Améliorations suggérées" et "Conclusion motivante" devant chaque suggestion :
 
 {compte_rendu}
 """
