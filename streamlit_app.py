@@ -50,11 +50,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Demander la clé API OpenAI à l'utilisateur
-openai_api_key = "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"
-openai.api_key = openai_api_key
+# openai_api_key = "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"
+# openai.api_key = openai_api_key
 
-# Définir directement la clé API OpenAI
-#openai.api_key = "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"  # Remplacez par votre clé API
+# Demander la clé API OpenAI à l'utilisateur
+openai_api_key = st.text_input("Clé API OpenAI", type="password")
+if not openai_api_key:
+    st.info("Veuillez entrer votre clé API OpenAI pour continuer.", icon="🔑")
+else:
+    # Créer un client OpenAI
+    openai.api_key = openai_api_key
 
 # Charger le fichier CSV
 uploaded_file = st.file_uploader("Téléchargez un fichier CSV contenant les comptes rendus", type=["csv"])
