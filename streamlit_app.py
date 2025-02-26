@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import openai
 
-# Configuration de la page
+
+    # Configuration de la page
 st.set_page_config(
     page_title="Analyse des Comptes Rendus - Parkours",
     page_icon="🚀",
@@ -48,8 +49,12 @@ st.markdown("""
     <p style='font-size: 16px; color: red;'><b>Note :</b> Votre fichier CSV doit contenir une colonne nommée <code>compte_rendu</code> pour que l'analyse fonctionne correctement.</p>
 """, unsafe_allow_html=True)
 
+# Demander la clé API OpenAI à l'utilisateur
+openai_api_key = "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"
+openai.api_key = openai_api_key
+
 # Définir directement la clé API OpenAI
-openai.api_key = "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"  # Remplacez par votre clé API
+#openai.api_key = "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"  # Remplacez par votre clé API
 
 # Charger le fichier CSV
 uploaded_file = st.file_uploader("Téléchargez un fichier CSV contenant les comptes rendus", type=["csv"])
@@ -67,32 +72,32 @@ if uploaded_file is not None:
         st.dataframe(df)
 
         # Section pour poser une question sur le contenu du CSV
-        st.header("Poser une question sur le fichier CSV chargé")
-        csv_question = st.text_area("Posez une question concernant les données du fichier CSV :", disabled=uploaded_file is None)
-        if csv_question:
-            try:
-                document = df.to_csv(index=False)
-                messages = [
-                    {
-                        "role": "user",
-                        "content": f"Voici un document CSV :\n{document}\n\n---\n\n{csv_question}",
-                    }
-                ]
+        #st.header("Poser une question sur le fichier CSV chargé")
+        #csv_question = st.text_area("Posez une question concernant les données du fichier CSV :", disabled=uploaded_file is None)
+        #if csv_question:
+        #    try:
+        #        document = df.to_csv(index=False)
+        #        messages = [
+        #            {
+        #                "role": "user",
+        #                "content": f"Voici un document CSV :\n{document}\n\n---\n\n{csv_question}",
+        #            }
+        #        ]
 
-                stream = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=messages,
-                    stream=True,
-                )
+        #        stream = openai.ChatCompletion.create(
+        #            model="gpt-3.5-turbo",
+        #            messages=messages,
+        #            stream=True,
+        #        )
 
-                response_content = ""
-                for chunk in stream:
-                    if hasattr(chunk.choices[0].delta, 'content') and chunk.choices[0].delta.content is not None:
-                        response_content += chunk.choices[0].delta.content
-                st.write(response_content)
+        #        response_content = ""
+        #        for chunk in stream:
+        #            if hasattr(chunk.choices[0].delta, 'content') and chunk.choices[0].delta.content is not None:
+        #                response_content += chunk.choices[0].delta.content
+        #        st.write(response_content)
 
-            except Exception as e:
-                st.error(f"Erreur lors de l'appel à l'API : {e}")
+        #    except Exception as e:
+        #        st.error(f"Erreur lors de l'appel à l'API : {e}")
 
         # Bouton pour analyser les comptes rendus avec l'IA
         if st.button("Analyser les comptes rendus avec l'IA"):
@@ -125,24 +130,38 @@ Un bon compte rendu doit être clair, structuré et rédigé dans un registre so
 """
 
                     try:
-                        messages = [{"role": "user", "content": prompt}]
-                        response = openai.ChatCompletion.create(
-                            model="gpt-3.5-turbo",
-                            messages=messages
+                        # Préparer le message pour l'API
+                        messages = [
+                        {"role": "user", "content": prompt}
+                        ]
+
+                        # Envoyer le prompt à l'API OpenAI
+                        response = openai.chat.completions.create(
+                        model="gpt-3.5-turbo",
+                        messages=messages
                         )
+
+                        # Extraire la réponse du contenu
                         response_content = response.choices[0].message.content.strip()
+
+                        # Ajouter la suggestion à la liste des suggestions
                         suggestions.append(response_content)
+
                     except Exception as e:
                         st.error(f"Erreur lors de l'appel à l'API pour l'entrée {index + 1} : {e}")
                         suggestions.append("Erreur lors de l'analyse")
 
-                if len(suggestions) != len(df):
-                    st.error(f"Nombre de suggestions ({len(suggestions)}) ne correspond pas au nombre de lignes ({len(df)}) dans le fichier.")
-                else:
-                    df['Suggestions'] = suggestions
 
-                st.write("### Comptes rendus avec suggestions :")
-                st.dataframe(df)
+            # Vérifier si le nombre de suggestions correspond au nombre de lignes dans le dataframe
+            if len(suggestions) != len(df):
+                st.error(f"Nombre de suggestions ({len(suggestions)}) ne correspond pas au nombre de lignes ({len(df)}) dans le fichier.")
+            else:
+                df['Suggestions'] = suggestions
 
-                csv_data = df.to_csv(index=False)
-                st.download_button(label="Télécharger les suggestions", data=csv_data, file_name='comptes_rendus_avec_suggestions.csv', mime='text/csv')
+            # Afficher les résultats avec les suggestions
+            st.write("Comptes rendus avec suggestions :")
+            st.dataframe(df)
+
+            # Ajouter une option pour télécharger le fichier mis à jour
+            csv = df.to_csv(index=False)
+            st.download_button(label="Télécharger les suggestions", data=csv, file_name='comptes_rendus_avec_suggestions.csv', mime='text/csv')
