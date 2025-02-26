@@ -54,7 +54,7 @@ openai_api_key = "sk-proj-g84bZ2aRT1fK_LL2jevdMxd0Ijw_QLlU54vl1R7tZ6M_v_ymoA6UL6
 openai.api_key = openai_api_key
 
 # Définir directement la clé API OpenAI
-#openai.api_key = "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"  # Remplacez par votre clé API
+#openai.api_key = "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"  # Remplacez par votre clé API
 
 # Charger le fichier CSV
 uploaded_file = st.file_uploader("Téléchargez un fichier CSV contenant les comptes rendus", type=["csv"])
