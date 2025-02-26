@@ -43,6 +43,7 @@ st.markdown("""
         <li>Téléchargez votre fichier au format CSV.</li>
         <li>Vérifier avec l'aperçu que c'est le bon fichier.</li>
         <li>Visualisez les résultats et téléchargez le fichier mis à jour.</li>
+        <li>Demander à Raph la clé de l'API.</li>
     </ol>
     <br>
 
