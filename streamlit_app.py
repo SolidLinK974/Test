@@ -11,11 +11,18 @@ st.set_page_config(
 
 # Utiliser un lien direct vers l'image hébergée
 logo_url= "https://image.noelshack.com/fichiers/2025/09/3/1740586406-logo-parkours.png"
-st.image(logo_url, width=120)
+st.markdown(
+    f"""
+    <div style="display: flex; justify-content: center;">
+        <img src="{logo_url}" width="120">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Bloc de texte explicatif (mode "tuto")
 st.markdown("""
-    <h1 style='text-align: center; font-size: 60px; color: #4CAF50;'>RelectIA</h1>
+    <h1 style='text-align: center; font-size: 60px; color: #06668c;'>RelectIA</h1>
     <h2 style='text-align: center; font-size: 30px; color: #333;'>L'application qui t'aide à relire les comptes rendus trimestriels</h2>
     <br>
 
@@ -30,7 +37,7 @@ st.markdown("""
     </ul>
     <br>
 
-    <h3 style='font-size: 22px; color: #2196F3;'>Comment utiliser l'application :</h3>
+    <p style='font-size: 22px; color: #06668c;'>Comment utiliser l'application :</p>
     <ol style='font-size: 18px;'>
         <li>Téléchargez votre fichier CSV.</li>
         <li>Posez une question sur le contenu du CSV ou cliquez sur <i>Analyser les comptes rendus avec l'IA</i> pour obtenir des suggestions personnalisées.</li>
