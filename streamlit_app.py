@@ -41,7 +41,7 @@ st.markdown("""
     <p style='font-size: 22px; color: #06668c;'>Comment utiliser l'application :</p>
     <ol style='font-size: 18px;'>
         <li>Téléchargez votre fichier au format CSV.</li>
-        <li>Vérifier avec l'aperçu que c'est le bon fichier .</li>
+        <li>Vérifier avec l'aperçu que c'est le bon fichier.</li>
         <li>Visualisez les résultats et téléchargez le fichier mis à jour.</li>
     </ol>
     <br>
