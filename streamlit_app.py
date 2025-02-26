@@ -11,7 +11,7 @@ st.set_page_config(
 
 # Utiliser un lien direct vers l'image hébergée sur Google Drive
 # Pour obtenir le lien direct, remplacez YOUR_FILE_ID par l'ID de votre fichier dans Google Drive
-logo_url = "https://drive.google.com/uc?export=view&id=1rClnpVF-pxDnUlnr80tChKX8BBBt4vJ5"
+logo_url = "https://drive.google.com/uc?export=download&id=1rClnpVF-pxDnUlnr80tChKX8BBBt4vJ5"
 st.image(logo_url, width=120)
 
 # Bloc de texte explicatif (mode "tuto")
