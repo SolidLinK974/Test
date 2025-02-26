@@ -10,7 +10,8 @@ st.set_page_config(
 )
 
 # Utiliser un lien direct vers l'image hébergée
-st.image("https://image.noelshack.com/fichiers/2025/09/3/1740586406-logo-parkours.png")
+logo_url= "https://image.noelshack.com/fichiers/2025/09/3/1740586406-logo-parkours.png"
+st.image(logo_url, width=120)
 
 # Bloc de texte explicatif (mode "tuto")
 st.markdown("""
