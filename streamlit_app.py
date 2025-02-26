@@ -20,12 +20,12 @@ st.markdown("""
 Cette application vous permet de :
 - **Charger** un fichier CSV contenant vos comptes rendus trimestriels.
 - **Analyser** automatiquement les comptes rendus grâce à l'intelligence artificielle pour obtenir des suggestions d'amélioration.
-- **Interroger** le contenu du CSV pour poser des questions spécifiques.<br><br><br>
+- **Interroger** le contenu du CSV pour poser des questions spécifiques.<br><br>
 
 **Comment utiliser l'application :**
 1. Téléchargez votre fichier CSV.
 2. Posez une question sur le contenu du CSV ou cliquez sur *Analyser les comptes rendus avec l'IA* pour obtenir des suggestions personnalisées.
-3. Visualisez les résultats et téléchargez le fichier mis à jour.
+3. Visualisez les résultats et téléchargez le fichier mis à jour.<br><br><br><br>
 
 **Note :** Votre fichier CSV doit contenir une colonne nommée `compte_rendu` pour que l'analyse fonctionne correctement.
 """, unsafe_allow_html=True)
