@@ -15,9 +15,7 @@ st.image(logo_url, width=120)
 
 # Bloc de texte explicatif (mode "tuto")
 st.markdown("""
-# RelectIA : l'application qui t'aide à relire les comptes rendus trimestriels
-
-
+# RelectIA : l'application qui t'aide à relire les comptes rendus trimestriels<br><br>
 
 Cette application vous permet de :
 - **Charger** un fichier CSV contenant vos comptes rendus trimestriels.
