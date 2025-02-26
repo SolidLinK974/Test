@@ -119,7 +119,6 @@ if uploaded_file is not None:
 
                     prompt = f"""
 Fond
-
 Le compte rendu peut évoquer : 
 l’autonomie de l’élève dans son travail personnel ou dans ses devoirs
 sa concentration pendant les séances de tutorat
@@ -129,7 +128,6 @@ sa discipline
 sa rigueur dans son travail
 sa progression dans la dynamique de travail ou dans son investissement
 les axes de progression de l’élève
-
 Le compte rendu ne doit pas évoquer : 
 une progression (en hausse ou en baisse) dans une ou plusieurs matières en particulier
 le niveau scolaire au global, ou dans une ou plusieurs matières en particulier
@@ -138,19 +136,16 @@ Forme
 Longueur
 Le compte rendu ne doit pas être inférieur à 80 mots, et ne doit pas dépasser 140 mots.
 orthographe
-
 Syntaxe et orthographe
 La syntaxe des phrases, l'orthographe et la conjugaison doivent être irréprochables.
-
 Le langage
 Le langage doit être courant, sans être grossier ou maladroit. 
-
 En fonction des éléments ci-dessus, dire si le CR correspond aux attentes
 bien si les éléments correspondent tous
 moyen si il y en a un ou deux enfreints (une ou deux consignes non respectées)
 à revoir si ça dépasse de deux consigne
 
-1 = fond et 2 = forme
+Chaque suggestion pour chaque comptes rendus doit avoir la même forme et respecter tous les attendus ci-dessus
 
 
 {compte_rendu}
