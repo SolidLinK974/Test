@@ -16,7 +16,7 @@ st.image(logo_url, width=120)
 
 # Bloc de texte explicatif (mode "tuto")
 st.markdown("""
-# Bienvenue sur l'application d'analyse des comptes rendus Parkours
+# RelectIA : l'application qui t'aide à relire les comptes rendus trimestriels
 
 Cette application vous permet de :
 - **Charger** un fichier CSV contenant vos comptes rendus trimestriels.
