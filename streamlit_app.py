@@ -15,19 +15,30 @@ st.image(logo_url, width=120)
 
 # Bloc de texte explicatif (mode "tuto")
 st.markdown("""
-# RelectIA : l'application qui t'aide à relire les comptes rendus trimestriels<br>
+    <h1 style='text-align: center; font-size: 60px; color: #4CAF50;'>RelectIA</h1>
+    <h2 style='text-align: center; font-size: 30px; color: #333;'>L'application qui t'aide à relire les comptes rendus trimestriels</h2>
+    <br>
 
-Cette application vous permet de :
-- **Charger** un fichier CSV contenant vos comptes rendus trimestriels.
-- **Analyser** automatiquement les comptes rendus grâce à l'intelligence artificielle pour obtenir des suggestions d'amélioration.
-- **Interroger** le contenu du CSV pour poser des questions spécifiques.<br><br>
+    <p style='font-size: 18px; text-align: justify;'>
+    Cette application vous permet de :
+    </p>
 
-**Comment utiliser l'application :**
-1. Téléchargez votre fichier CSV.
-2. Posez une question sur le contenu du CSV ou cliquez sur *Analyser les comptes rendus avec l'IA* pour obtenir des suggestions personnalisées.
-3. Visualisez les résultats et téléchargez le fichier mis à jour.<br><br><br><br>
+    <ul style='font-size: 18px;'>
+        <li><b>Charger</b> un fichier CSV contenant vos comptes rendus trimestriels.</li>
+        <li><b>Analyser</b> automatiquement les comptes rendus grâce à l'intelligence artificielle pour obtenir des suggestions d'amélioration.</li>
+        <li><b>Interroger</b> le contenu du CSV pour poser des questions spécifiques.</li>
+    </ul>
+    <br>
 
-**Note :** Votre fichier CSV doit contenir une colonne nommée `compte_rendu` pour que l'analyse fonctionne correctement.
+    <h3 style='font-size: 22px; color: #2196F3;'>Comment utiliser l'application :</h3>
+    <ol style='font-size: 18px;'>
+        <li>Téléchargez votre fichier CSV.</li>
+        <li>Posez une question sur le contenu du CSV ou cliquez sur <i>Analyser les comptes rendus avec l'IA</i> pour obtenir des suggestions personnalisées.</li>
+        <li>Visualisez les résultats et téléchargez le fichier mis à jour.</li>
+    </ol>
+    <br>
+
+    <p style='font-size: 16px; color: red;'><b>Note :</b> Votre fichier CSV doit contenir une colonne nommée <code>compte_rendu</code> pour que l'analyse fonctionne correctement.</p>
 """, unsafe_allow_html=True)
 
 # Définir directement la clé API OpenAI
