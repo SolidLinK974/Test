@@ -144,7 +144,7 @@ La syntaxe des phrases, l'orthographe et la conjugaison doivent être irréproch
 Le langage
 Le langage doit être courant, sans être grossier ou maladroit. 
 
-En fonction des éléments ci-dessus, dire si le CR correspond aux attentes 👍
+En fonction des éléments ci-dessus, dire si le CR correspond aux attentes
 bien si les éléments correspondent tous
 moyen si il y en a un ou deux enfreints (une ou deux consignes non respectées)
 à revoir si ça dépasse de deux consigne
