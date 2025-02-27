@@ -146,7 +146,7 @@ bien si les éléments correspondent tous
 moyen si il y en a un ou deux enfreints (une ou deux consignes non respectées)
 à revoir si ça dépasse de deux consigne
 
-Chaque suggestion pour chaque comptes rendus doit avoir la même forme et respecter tous les attendus ci-dessus
+Chaque suggestion pour chaque comptes rendus doit avoir la même forme et respecter tous les attendus ci-dessus. Le format de la suggestion doit être le même pour toutes les lignes.
 
 
 {compte_rendu}
