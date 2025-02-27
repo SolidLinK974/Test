@@ -125,8 +125,8 @@ Voici les critères à respecter pour la suggestion :
 - si le compte rendu contient des erreurs de syntaxe, d’orthographe ou de conjugaison, il faut les mentionner et les corriger ;
 - si le langage est grossier, inapproprié ou maladroit, il faut le mentionner ;
 - si le compte rendu évoque une progression de l’élève dans une matière précise, il faut le mentionner ;
-- si le compte rendu est en-dessous de 80 mots, ou au-dessus de 140 mots, il faut préciser combien de mots il y a ;
-- si le compte rendu utilise le mot “étude”, “études” ou “semestre”, il faut le mentionner car il ne doit pas être utilisé ;
+- si le compte rendu est en-dessous de 80 mots, ou au-dessus de 140 mots, il faut compter préciser combien de mots il y a ;
+- si le compte rendu utilise les mots “étude”, “études” ou “semestre”, il faut le mentionner et préciser qu'ils ne doivent pas être utilisés ;
 
 Chaque retour pour chaque critère doit être uniformisé dans l'ordre et un retour à la ligne pour chacun.
 
