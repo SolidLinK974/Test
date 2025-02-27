@@ -127,10 +127,6 @@ if uploaded_file is not None:
 - si le compte rendu est en-dessous de 80 mots, ou au-dessus de 140 mots, il faut préciser combien de mots il y a ;
 - si le compte rendu utilise le mot “étude”, “études” ou “semestre”, il faut le mentionner
 
-Pour chaque critère non respecté il faut une ligne d'explication mais si un ou plusieurs critères sont respectés, il n’est pas nécessaire de le mentionner. Si tout les critères sont respectés il faut simplement dire que ce compte rendu respecte tous les critères énoncés.
-
-
-
 
 {compte_rendu}
 """
