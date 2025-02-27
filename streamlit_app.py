@@ -120,14 +120,15 @@ if uploaded_file is not None:
                      # 1. Génération de la suggestion
                     prompt_suggestion = f"""
                     
-Dire si le compte rendu : 
-- contient des erreurs de syntaxe, d’orthographe ou de conjugaison et les mentionner ;
-- utilise un langage grossier, inapproprié ou maladroit ;
-- mentionne un progression de l’élève dans une matière précise ;
-- est en-dessous de 80 mots, ou au-dessus de 140 mots ;
-- utilise le mot “étude”, “études” ou “semestre”.
-- revenir à la ligne pour chaque élément nouveau
-Si le compte rendu respecte les points énoncés ci-dessus, il n’est pas nécessaire de le mentionner.
+Dire si le compte rendu respecte les critères suivants : 
+- si contient des erreurs de syntaxe, d’orthographe ou de conjugaison, il faut les mentionner et les corriger ;
+- il ne faut pas que le langage soit grossier, inapproprié ou maladroit ;
+- il ne faut pas mentionner une progression de l’élève dans une matière précise ;
+- il ne faut pas être en-dessous de 80 mots, ou au-dessus de 140 mots. Si c'est le cas, préciser préciser il y a combien de mots ;
+- il ne faut pas utiliser le mot “étude”, “études” ou “semestre”.
+
+Pour chaque critère non respecté il faut une ligne d'explication mais si un ou plusieurs critères sont respectés, il n’est pas nécessaire de le mentionner. Si tout les critères sont respecté il faut simplement dire que ce compte rendu respecte tous les critères énoncés.
+
 
 
 
