@@ -34,16 +34,15 @@ st.markdown("""
     <ul style='font-size: 18px;'>
         <li><b>Charger</b> un fichier CSV contenant vos comptes rendus trimestriels.</li>
         <li><b>Analyser</b> automatiquement les comptes rendus grâce à l'intelligence artificielle pour obtenir des suggestions d'amélioration.</li>
-        <li><b>Interroger</b> le contenu du CSV pour poser des questions spécifiques.</li>
     </ul>
     <br>
 
     <p style='font-size: 22px; color: #06668c;'>Comment utiliser l'application :</p>
     <ol style='font-size: 18px;'>
         <li>Téléchargez votre fichier au format CSV.</li>
-        <li>Vérifier avec l'aperçu que c'est le bon fichier.</li>
+        <li>Vérifiez avec l'aperçu que c'est le bon fichier.</li>
         <li>Visualisez les résultats et téléchargez le fichier mis à jour.</li>
-        <li>Demander à Raph la clé de l'API.</li>
+        <li>Demandez à Raph la clé de l'API.</li>
     </ol>
     <br>
 
