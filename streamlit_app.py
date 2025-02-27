@@ -50,7 +50,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Demander la clé API OpenAI à l'utilisateur
-# openai_api_key = "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"
+# openai_api_key = "la clé la clé" (jamais faire ça ok ?)
 # openai.api_key = openai_api_key
 
 # Demander la clé API OpenAI à l'utilisateur
