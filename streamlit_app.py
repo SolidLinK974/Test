@@ -119,34 +119,16 @@ if uploaded_file is not None:
 
                      # 1. Génération de la suggestion
                     prompt_suggestion = f"""
-Fond
-Le compte rendu peut évoquer : 
-l’autonomie de l’élève dans son travail personnel ou dans ses devoirs
-sa concentration pendant les séances de tutorat
-sa ponctualité
-son attitude en groupe et sa posture face au travail
-sa discipline
-sa rigueur dans son travail
-sa progression dans la dynamique de travail ou dans son investissement
-les axes de progression de l’élève
-Le compte rendu ne doit pas évoquer : 
-une progression (en hausse ou en baisse) dans une ou plusieurs matières en particulier
-le niveau scolaire au global, ou dans une ou plusieurs matières en particulier
+                    
+Dire si le compte rendu : 
+- contient des erreurs de syntaxe, d’orthographe ou de conjugaison et les mentionner ;
+- utilise un langage grossier, inapproprié ou maladroit ;
+- mentionne un progression de l’élève dans une matière précise ;
+- est en-dessous de 80 mots, ou au-dessus de 140 mots ;
+- utilise le mot “étude”, “études” ou “semestre”.
+- revenir à la ligne pour chaque élément nouveau
+Si le compte rendu respecte les points énoncés ci-dessus, il n’est pas nécessaire de le mentionner.
 
-Forme
-Longueur
-Le compte rendu ne doit pas être inférieur à 80 mots, et ne doit pas dépasser 140 mots.
-orthographe
-Syntaxe et orthographe
-La syntaxe des phrases, l'orthographe et la conjugaison doivent être irréprochables.
-Le langage
-Le langage doit être courant, sans être grossier ou maladroit. 
-En fonction des éléments ci-dessus, dire si le CR correspond aux attentes
-bien si les éléments correspondent tous
-moyen si il y en a un ou deux enfreints (une ou deux consignes non respectées)
-à revoir si ça dépasse de deux consignes
-
-Chaque suggestion pour chaque comptes rendus doit être uniformisé et respecter tous les attendus énoncés ci-dessus.
 
 
 {compte_rendu}
