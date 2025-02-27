@@ -90,7 +90,7 @@ if uploaded_file is not None:
         #        ]
 
         #        stream = openai.ChatCompletion.create(
-        #            model="gpt-4",
+        #            model="gpt-4-turbo",
         #            messages=messages,
         #            stream=True,
         #        )
@@ -142,7 +142,7 @@ Chaque retour pour chaque critère doit être uniformisé dans l'ordre et un ret
 
                         # Envoyer le prompt à l'API OpenAI
                         response = openai.chat.completions.create(
-                        model="gpt-4",
+                        model="gpt-4-turbo",
                         messages=messages
                         )
 
@@ -182,7 +182,7 @@ Compte rendu original :
 
                         # Envoyer le prompt à l'API OpenAI
                         response_corr = openai.chat.completions.create(
-                        model="gpt-4",
+                        model="gpt-4-turbo",
                         messages=messages_corr
                         )
 
