@@ -144,9 +144,9 @@ Le langage doit être courant, sans être grossier ou maladroit.
 En fonction des éléments ci-dessus, dire si le CR correspond aux attentes
 bien si les éléments correspondent tous
 moyen si il y en a un ou deux enfreints (une ou deux consignes non respectées)
-à revoir si ça dépasse de deux consigne
+à revoir si ça dépasse de deux consignes
 
-Chaque suggestion pour chaque comptes rendus doit avoir la même forme et respecter tous les attendus ci-dessus. Le format de la suggestion doit être le même pour toutes les lignes.
+Chaque suggestion pour chaque comptes rendus doit être uniformisé et respecter tous les attendus énoncés ci-dessus.
 
 
 {compte_rendu}
