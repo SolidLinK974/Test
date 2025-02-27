@@ -180,7 +180,7 @@ En vous basant sur la suggestion, proposez une réécriture/une amélioration, c
 
 Critères :
 - Le compte rendu doit contenir entre 80 et 140 mots.
-- La syntaxe, l'orthographe et la conjugaison doivent être irréprochables.
+- La syntaxe, l'orthographe et la conjugaison doivent être irréprochables. Il faut systématiquement noter dans la suggestion s'il y a des fautes liées à l'orthographe, la syntaxe et la conjugaison.
 - Le langage doit être courant et approprié.
 - Le contenu doit se concentrer sur l'autonomie, la concentration, la ponctualité, l'attitude en groupe, la discipline, la rigueur et les axes de progression de l’élève.
 - Il ne doit pas aborder une progression dans des matières spécifiques ni le niveau scolaire global.
