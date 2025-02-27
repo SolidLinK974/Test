@@ -109,6 +109,7 @@ if uploaded_file is not None:
             st.write("Analyse en cours...")
 
             suggestions = []
+            corrections = []
 
             if 'compte_rendu' not in df.columns:
                 st.error("La colonne 'compte_rendu' est absente du fichier CSV. Assurez-vous que le fichier est correctement formaté.")
@@ -116,7 +117,8 @@ if uploaded_file is not None:
                 for index, row in df.iterrows():
                     compte_rendu = row['compte_rendu']
 
-                    prompt = f"""
+                     # 1. Génération de la suggestion
+                    prompt_suggestion = f"""
 Fond
 Le compte rendu peut évoquer : 
 l’autonomie de l’élève dans son travail personnel ou dans ses devoirs
@@ -153,7 +155,7 @@ Chaque suggestion pour chaque comptes rendus doit avoir la même forme et respec
                     try:
                         # Préparer le message pour l'API
                         messages = [
-                        {"role": "user", "content": prompt}
+                        {"role": "user", "content": prompt_suggestion}
                         ]
 
                         # Envoyer le prompt à l'API OpenAI
@@ -163,26 +165,67 @@ Chaque suggestion pour chaque comptes rendus doit avoir la même forme et respec
                         )
 
                         # Extraire la réponse du contenu
-                        response_content = response.choices[0].message.content.strip()
+                        suggestion = response.choices[0].message.content.strip()
 
                         # Ajouter la suggestion à la liste des suggestions
-                        suggestions.append(response_content)
+                        suggestions.append(suggestion)
 
                     except Exception as e:
                         st.error(f"Erreur lors de l'appel à l'API pour l'entrée {index + 1} : {e}")
                         suggestions.append("Erreur lors de l'analyse")
 
+                        # 2. Génération de la correction complète en se basant sur la suggestion
+                    prompt_correction = f"""
+En vous basant sur la suggestion, proposez une réécriture/une amélioration, ci-besoin, du compte rendu en respectant les critères ci-dessous :
+
+Critères :
+- Le compte rendu doit contenir entre 80 et 140 mots.
+- La syntaxe, l'orthographe et la conjugaison doivent être irréprochables.
+- Le langage doit être courant et approprié.
+- Le contenu doit se concentrer sur l'autonomie, la concentration, la ponctualité, l'attitude en groupe, la discipline, la rigueur et les axes de progression de l’élève.
+- Il ne doit pas aborder une progression dans des matières spécifiques ni le niveau scolaire global.
+
+Suggestion :
+{suggestion}
+
+Compte rendu original :
+{compte_rendu}
+"""
+
+                    try:
+                        # Préparer le message pour l'API
+                        messages_corr = [
+                        {"role": "user", "content": prompt_correction}
+                        ]
+
+                        # Envoyer le prompt à l'API OpenAI
+                        response_corr = openai.chat.completions.create(
+                        model="gpt-3.5-turbo",
+                        messages=messages_corr
+                        )
+
+                        # Extraire la réponse du contenu
+                        correction = response_corr.choices[0].message.content.strip()
+
+                        # Ajouter la suggestion à la liste des suggestions
+                        corrections.append(correction)
+
+                    except Exception as e:
+                        st.error(f"Erreur lors de l'appel à l'API pour l'entrée {index + 1} : {e}")
+                        corrections.append("Erreur lors de l'analyse")
+
 
             # Vérifier si le nombre de suggestions correspond au nombre de lignes dans le dataframe
-            if len(suggestions) != len(df):
-                st.error(f"Nombre de suggestions ({len(suggestions)}) ne correspond pas au nombre de lignes ({len(df)}) dans le fichier.")
+            if len(suggestions) != len(df) or len(corrections) != len(df):
+                st.error(f"Nombre de suggestions ({len(suggestions)}) ou nombre de corrections ({len(corrections)}) ne correspond pas au nombre de lignes ({len(df)}) dans le fichier.")
             else:
                 df['Suggestions'] = suggestions
+                df['Corrections'] = corrections
 
-            # Afficher les résultats avec les suggestions
-            st.write("Comptes rendus avec suggestions :")
+            # Afficher le dataframe avec les deux colonnes
+            st.write("Comptes rendus avec suggestions et corrections :")
             st.dataframe(df)
 
-            # Ajouter une option pour télécharger le fichier mis à jour
+            # Option de téléchargement du fichier mis à jour
             csv = df.to_csv(index=False)
-            st.download_button(label="Télécharger les suggestions", data=csv, file_name='comptes_rendus_avec_suggestions.csv', mime='text/csv')
+            st.download_button(label="Télécharger les suggestions et corrections", data=csv, file_name='comptes_rendus_avec_suggestions_et_corrections.csv', mime='text/csv')
