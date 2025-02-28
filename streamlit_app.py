@@ -120,16 +120,20 @@ if uploaded_file is not None:
                      # 1. Génération de la suggestion
                     prompt_suggestion = f"""
                     
-Voici les critères à respecter pour la suggestion :
+Critères de suggestion pour l'évaluation des compte-rendus :
 
-- si le compte rendu contient des erreurs de syntaxe, d’orthographe ou de conjugaison, il faut les mentionner et les corriger ;
-- si le langage est grossier, inapproprié ou maladroit, il faut le mentionner ;
-- si le compte rendu évoque une progression de l’élève dans une matière précise, il faut le mentionner ;
-- si le compte rendu est en-dessous de 80 mots, ou au-dessus de 140 mots, il faut compter préciser combien de mots il y a ;
-- si le compte rendu utilise les mots “étude”, “études” ou “semestre”, il faut le mentionner et préciser qu'ils ne doivent pas être utilisés ;
+Corrections de Fautes :
+Orthographe/Conjugaison : Identifier et corriger les fautes d'orthographe et de conjugaison spécifiques.
+Phrases mal Formulées : Corriger les phrases grammaticalement incorrectes ou mal formulées pour améliorer la clarté (ex. "ce qui lui pose de plus de difficultés" devrait être "ce qui lui pose le plus de difficultés").
 
-Chaque retour pour chaque critère doit être uniformisé dans l'ordre et un retour à la ligne pour chacun.
+Langage Approprié :
+Inapproprié ou Grossier : Remplacer tout langage inapproprié ou grossier par des termes plus respectueux (ex. remplacer "idiot" par "distrait").
 
+Contenu des Compte-Rendus :
+Progression Académique : Mentionner uniquement la progression académique lorsque les améliorations des notes ou de la moyenne sont explicitement évoquées.
+Longueur du Texte : Signaler si le texte est en-dessous de 80 mots ou au-dessus de 140 mots.
+Termes Académiques Spécifiques : Identifier l'utilisation des termes "étude", "études", "semestre" et dire s’ils sont utilisés dans le compte rendu.
+Chaque suggestion sera formulée de manière claire et concise, en évitant les répétitions inutiles, et en fournissant des explications lorsque des termes académiques spécifiques sont utilisés de manière inappropriée. Les retours seront uniformisés et organisés de manière à faciliter la lecture et la compréhension.
 
 {compte_rendu}
 """
