@@ -162,14 +162,7 @@ Chaque suggestion sera formulée de manière claire et concise, en évitant les 
 
                         # 2. Génération de la correction complète en se basant sur la suggestion
                     prompt_correction = f"""
-En vous basant sur la suggestion, proposez une réécriture/une amélioration, ci-besoin, du compte rendu en respectant les critères ci-dessous :
-
-Critères :
-- Le compte rendu doit contenir entre 80 et 140 mots.
-- La syntaxe, l'orthographe et la conjugaison doivent être irréprochables. Il faut systématiquement noter dans la suggestion s'il y a des fautes liées à l'orthographe, la syntaxe et la conjugaison.
-- Le langage doit être courant et approprié.
-- Le contenu doit se concentrer sur l'autonomie, la concentration, la ponctualité, l'attitude en groupe, la discipline, la rigueur et les axes de progression de l’élève.
-- Il ne doit pas aborder une progression dans des matières spécifiques ni le niveau scolaire global.
+Proposez une réécriture/une amélioration, du compte rendu en respectant les critères de la suggestion.
 
 Suggestion :
 {suggestion}
